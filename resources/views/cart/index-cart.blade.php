@@ -1,8 +1,11 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Cart') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-
-<div class="container">
+<div class="container mt-4">
     @if(Session::has('success'))
     <div class="alert alert-success">
         {{Session::get('success')}}
@@ -21,7 +24,7 @@
     @endphp
     @if($carts->count() == 0)
 
-    <p style="text-align:center">Your Cart Empty</p>
+    <p style="text-align:center; font-size: 20px">Your Cart Empty</p>
     @endif
 
 
@@ -73,8 +76,7 @@
 
 
 
-@endsection
-@section('script')
+
 <script type="text/javascript">
     (function(){
     const classname = document.querySelectorAll('.quantity');
@@ -98,4 +100,4 @@
     })();
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-@endsection
+</x-app-layout>

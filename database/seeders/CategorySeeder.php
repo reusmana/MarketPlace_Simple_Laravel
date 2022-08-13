@@ -37,12 +37,6 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             'name' => 'Jaket'
         ]);
-        DB::table('users')->insert([
-            'name' => 'reusmana sujani',
-            'email' => 'reusmanasujani@gmail.com',
-            'password' => bcrypt('12345678'),
-            'address' => 'Sukabumi',
-            'phone' => '085210780093',
-        ]);
+        
     }
 }

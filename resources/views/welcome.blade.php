@@ -31,7 +31,7 @@
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
                       <a class="nav-link" href="#">About Us</a>
                       <a class="nav-link" href="/index-shop">Our Product</a>
                       <a class="nav-link" href="{{ route('login') }}">Sign In</a>

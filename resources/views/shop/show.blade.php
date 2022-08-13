@@ -1,8 +1,11 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Product Details') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-
-<div class="container">
+<div class="container mt-4">
     <h2>{{$product->name}}</h2>
     <hr>
     <div class="row">
@@ -27,6 +30,4 @@
         </div>
     </div>
 </div>
-
-
-@endsection
+</x-app-layout>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/index-cart', [App\Http\Controllers\CartController::class, 'index'])->name('index');
 
-Route::get('/index-shop', [App\Http\Controllers\Shop::class, 'index'])->name('index');
+Route::get('/index-shop', [App\Http\Controllers\Shop::class, 'index'])->name('index')->middleware('auth');
 
 Route::get('/show/{id}', [App\Http\Controllers\Shop::class, 'showDetail'])->name('showDetail');
 
@@ -35,3 +36,12 @@ Route::patch('/cart/{id}', [\App\Http\Controllers\CartController::class, 'update
 //update quantity pada cart
 
 Route::post('/checkout', [\App\Http\Controllers\CheckoutController::class, 'store'])->name('store');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
